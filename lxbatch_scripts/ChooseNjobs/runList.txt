@@ -1,0 +1,3 @@
+/store/group/comm_ecal/localreco/cmssw_720p4_zeromaterial/photongun_pu25_ave40
+
+
