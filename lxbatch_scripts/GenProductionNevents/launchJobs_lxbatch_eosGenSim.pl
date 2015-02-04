@@ -81,7 +81,7 @@ open(SAMPLEJOBLISTFILE, ">", $sampleJobListFile);
 		"%g > ".$tempo1) ;
     
 	$tempo2 = "./tempo2" ;
-	$jobItEvt = ( ($jobIt -1 ) * 5000) + 1; 
+	$jobItEvt = ( ($jobIt -1 ) * 100) + 1; 
 	print "firstEvent = ".$jobItEvt."\n";
 	system ("cat ".$tempo1."   | sed -e s%FIRSTEVENT%".$jobItEvt.
 		                    "%g > ".$tempo2) ;
@@ -102,16 +102,16 @@ open(SAMPLEJOBLISTFILE, ">", $sampleJobListFile);
     
 	open (SAMPLEJOBFILE, ">", $tempBjob) or die "Can't open file ".$tempBjob;
 
-	$command = "#!/bin/tcsh" ;
+	$command = "#!/bin/bash" ;
 	print SAMPLEJOBFILE $command."\n";
 
 	$command = "cd ".$BASEDir ;
 	print SAMPLEJOBFILE $command."\n";
 
-	$command = "setenv SCRAM_ARCH slc5_amd64_gcc462" ;
+	$command = "export SCRAM_ARCH=slc6_amd64_gcc472" ;
 	print SAMPLEJOBFILE $command."\n";
     
-	$command = "eval `scramv1 ru -csh`" ;
+	$command = "eval `scramv1 ru -sh`" ;
 	print SAMPLEJOBFILE $command."\n";
     
 	$command = "cd -" ;

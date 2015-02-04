@@ -182,7 +182,7 @@ while (<LISTOFSamples>)
     
 	open (SAMPLEJOBFILE, ">", $tempBjob) or die "Can't open file ".$tempBjob;
 
-	$command = "#!/bin/tcsh" ;
+	$command = "#!/bin/bash" ;
 	print SAMPLEJOBFILE $command."\n";
 
 	$command = "cd ".$BASEDir ;
@@ -191,7 +191,7 @@ while (<LISTOFSamples>)
 	$command = "export SCRAM_ARCH=slc6_amd64_gcc482" ;
 	print SAMPLEJOBFILE $command."\n";
     
-	$command = "eval `scramv1 ru -csh`" ;
+	$command = "eval `scramv1 ru -sh`" ;
 	print SAMPLEJOBFILE $command."\n";
     
 	$command = "cd -" ;

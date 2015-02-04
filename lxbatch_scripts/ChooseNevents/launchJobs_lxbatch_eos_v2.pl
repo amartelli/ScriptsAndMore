@@ -101,16 +101,16 @@ open(SAMPLEJOBLISTFILE, ">", $sampleJobListFile);
     
 	open (SAMPLEJOBFILE, ">", $tempBjob) or die "Can't open file ".$tempBjob;
 
-	$command = "#!/bin/tcsh" ;
+	$command = "#!/bin/bash" ;
 	print SAMPLEJOBFILE $command."\n";
 
 	$command = "cd ".$BASEDir ;
 	print SAMPLEJOBFILE $command."\n";
 
-	$command = "setenv SCRAM_ARCH slc5_amd64_gcc462" ;
+	$command = "export SCRAM_ARCH=slc5_amd64_gcc462" ;
 	print SAMPLEJOBFILE $command."\n";
     
-	$command = "eval `scramv1 ru -csh`" ;
+	$command = "eval `scramv1 ru -sh`" ;
 	print SAMPLEJOBFILE $command."\n";
     
 	$command = "cd -" ;
